@@ -1,28 +1,13 @@
-from hipotecaVariable import HipotecaVariable
-from hipotecaMixta import HipotecaMixta
+from constructorHipoteca import ConstructorHipoteca
 
 def main():
-
-    # préstamo inicial
-    C = 200000 
-    años = 30
     
-    ## Condiciones primer año
-    euríbor = 1.231
-    diferencial_interés = 0.39
-    TIN_año_1 = euríbor + diferencial_interés
+    hipoteca_mixta = ConstructorHipoteca.crea_hipoteca_mixta()
 
-    ## Condiciones segundo año
-    euríbor_desde_año_2 = 4
-    diferencial_interés_desde_año_2 = 0.39
+    hipoteca_variable = ConstructorHipoteca.crea_hipoteca_variable()
 
-    meses = años * 12
-
-    ### hipoteca_variable = HipotecaVariable(C, meses, TIN_año_1, diferencial_interés_desde_año_2, euríbor_desde_año_2)
-
-    hipoteca_mixta = HipotecaMixta(C, meses, 12, TIN_año_1, diferencial_interés_desde_año_2, euríbor_desde_año_2)
-
-    print(hipoteca_mixta.formato_chulo())
+    #print(hipoteca_mixta.formato_chulo())
+    print(hipoteca_variable.formato_chulo())
 
 if __name__ == "__main__":
     main()

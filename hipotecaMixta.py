@@ -11,7 +11,7 @@ class HipotecaMixta:
             diferencial_interés_desde_mes_n_más_1, 
             euríbor_desde_mes_n_más_1): # el TIN es el euríbor + diferencial
 
-        self.nombre = "Mixta"
+        self.nombre = "HIPOTECA MIXTA"
         self.capital_prestado = capital_prestado
         self.total_meses = total_meses
         self.meses_a_TIN_fijo = meses_a_TIN_fijo
@@ -20,7 +20,7 @@ class HipotecaMixta:
         self.euríbor_desde_mes_n_más_1 = euríbor_desde_mes_n_más_1
 
     def hipoteca_primeros_n_meses(self):
-        nombre = "Primeros "+str(self.meses_a_TIN_fijo)+" meses"
+        nombre = self.nombre + " - primeros "+str(self.meses_a_TIN_fijo)+" meses"
         return Hipoteca(nombre, self.capital_prestado, self.total_meses, self.TIN_fijo_primeros_meses)
 
     def hipoteca_desde_mes_n_más_1(self, hipoteca_primeros_n_meses):
@@ -30,5 +30,8 @@ class HipotecaMixta:
     def formato_chulo(self):
         hipoteca_primeros_n_meses = self.hipoteca_primeros_n_meses()
         hipoteca_desde_mes_n_más_1 = self.hipoteca_desde_mes_n_más_1(hipoteca_primeros_n_meses)
-        return hipoteca_primeros_n_meses.formato_chulo() + "\n" + hipoteca_desde_mes_n_más_1.formato_chulo()
+
+        cabecera = self.nombre + "\n"
+        cuerpo = hipoteca_primeros_n_meses.formato_chulo() + "\n" + hipoteca_desde_mes_n_más_1.formato_chulo()
         
+        return cabecera + cuerpo
