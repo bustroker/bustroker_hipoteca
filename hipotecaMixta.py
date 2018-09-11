@@ -20,8 +20,7 @@ class HipotecaMixta:
         self.euríbor_desde_mes_n_más_1 = euríbor_desde_mes_n_más_1
 
     def hipoteca_primeros_n_meses(self):
-        nombre = self.nombre + " - primeros "+str(self.meses_a_TIN_fijo)+" meses"
-        return Hipoteca(nombre, self.capital_prestado, self.total_meses, self.TIN_fijo_primeros_meses)
+        return Hipoteca(self.nombre, self.capital_prestado, self.total_meses, self.TIN_fijo_primeros_meses)
 
     def hipoteca_desde_mes_n_más_1(self, hipoteca_primeros_n_meses):
         TIN_desde_mes_n_más_1 = self.euríbor_desde_mes_n_más_1 + self.diferencial_interés_desde_mes_n_más_1
@@ -31,7 +30,10 @@ class HipotecaMixta:
         hipoteca_primeros_n_meses = self.hipoteca_primeros_n_meses()
         hipoteca_desde_mes_n_más_1 = self.hipoteca_desde_mes_n_más_1(hipoteca_primeros_n_meses)
 
-        cabecera = self.nombre + "\n"
-        cuerpo = hipoteca_primeros_n_meses.formato_chulo() + "\n" + hipoteca_desde_mes_n_más_1.formato_chulo()
-        
-        return cabecera + cuerpo
+        cabecera_hipoteca_1 = "************ HIPOTECA "+hipoteca_primeros_n_meses.nombre+" - Primeros "+str(self.meses_a_TIN_fijo/12)+" años"
+        hipoteca_1 = "\n" + hipoteca_primeros_n_meses.formato_chulo()
+        cabecera_hipoteca_2 = "\n\n************ HIPOTECA "+hipoteca_desde_mes_n_más_1.nombre+" - A partir de los "+str(self.meses_a_TIN_fijo/12)+" años"
+        hipoteca_2 = "\n" + hipoteca_desde_mes_n_más_1.formato_chulo()
+        hipoteca_2_euribor = "\nEuríbor: " + str(self.euríbor_desde_mes_n_más_1)
+
+        return cabecera_hipoteca_1 + hipoteca_1 + cabecera_hipoteca_2 + hipoteca_2 + hipoteca_2_euribor
