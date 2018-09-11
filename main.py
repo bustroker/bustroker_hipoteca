@@ -1,31 +1,27 @@
-from calculadora import Calculadora
+from hipoteca import Hipoteca
 
 def main():
-    c_0 = 200000 # préstamo
-    años = 30
 
-    euríbor = 1.231 # euribor
+    # préstamo inicial
+    C = 200000 
+    años = 30
+    euríbor = 1.231
     diferencial_interés = 0.39
 
+    meses = años * 12
     TIN = euríbor + diferencial_interés
 
-    # interés efectivo mensual (divido tb por 100 para tener el por-uno)
-    i = TIN / 1200 
+    hipoteca_inicial = Hipoteca(C, meses, TIN)
 
-    # total de cuotas
-    N = años * 12 # meses
+    print(hipoteca_inicial.pretty_format())
+    
+    ## revisión de hipoteca después de n pagos
+    n = 12 # un año
+    euríbor_1 = 4
+    diferencial_interés_1 = 0.39
+    nuevo_TIN = euríbor_1 + diferencial_interés_1
 
-    calculadora = Calculadora
-
-    # cuota
-    c_1 = calculadora.cuota(c_0, i, N)
-
-    # capital pendiente de amortización después de 12 cuotas pagadas
-    C_12 = calculadora.deuda_despues_de_n_pagos(c_1, i, N, 12)
-
-    # nueva cuota de hipoteca a N-12 por el importe C_12
-
-    print(C_12)
+    #### hipoteca_revisada = hipoteca_inicial.revisa_hipoteca_después_de_n_pagos(n, nuevo_TIN)
 
 
 if __name__ == "__main__":
