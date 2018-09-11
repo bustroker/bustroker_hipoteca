@@ -1,9 +1,9 @@
 from calculadora import Calculadora
 
 class Hipoteca:
-    def __init__(self, nombre, capital_préstamo, meses, TIN): # el TIN es el euríbor + diferencial
+    def __init__(self, nombre, capital_prestado, meses, TIN): # el TIN es el euríbor + diferencial
         self.nombre = nombre
-        self.capital_prestado = capital_préstamo
+        self.capital_prestado = capital_prestado
         self.meses = meses # total de cuotas/meses a pagar
         self.interés_efectivo_mensual = TIN/1200 # tipo interés mensual efectivo. Divido por 12 y por 100 para convertir el porciento
         self.calculadora = Calculadora()
