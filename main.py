@@ -1,4 +1,5 @@
 from hipotecaVariable import HipotecaVariable
+from hipotecaMixta import HipotecaMixta
 
 def main():
 
@@ -17,9 +18,11 @@ def main():
 
     meses = años * 12
 
-    hipoteca_variable = HipotecaVariable(C, meses, TIN_año_1, diferencial_interés_desde_año_2, euríbor_desde_año_2)
+    ### hipoteca_variable = HipotecaVariable(C, meses, TIN_año_1, diferencial_interés_desde_año_2, euríbor_desde_año_2)
 
-    print(hipoteca_variable.formato_chulo())
+    hipoteca_mixta = HipotecaMixta(C, meses, 12, TIN_año_1, diferencial_interés_desde_año_2, euríbor_desde_año_2)
+
+    print(hipoteca_mixta.formato_chulo())
 
 if __name__ == "__main__":
     main()
