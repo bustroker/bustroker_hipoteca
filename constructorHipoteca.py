@@ -1,4 +1,3 @@
-from hipotecaVariable import HipotecaVariable
 from hipotecaMixta import HipotecaMixta
 
 class ConstructorHipoteca:
