@@ -5,4 +5,6 @@ He implementado el calculador según la explicación de cómo funciona la hipote
 La configuración de los parámetros está en el contructor de hipoteca. Ahí se deben personalizar para cada caso.
 
 ## Run
+```
 py main.py
+```
