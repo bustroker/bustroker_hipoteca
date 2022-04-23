@@ -8,8 +8,8 @@ class ConstructorHipoteca:
     def crea_hipoteca_mixta(estimación_euríbor_desde_año_11 = 2):
 
         # préstamo inicial
-        C = 220000 
-        total_años = 38
+        C = 500000 
+        total_años = 35
         total_meses = total_años * 12
         
         ## Condiciones primeros diez años
@@ -28,8 +28,8 @@ class ConstructorHipoteca:
     def crea_hipoteca_variable():## funciona como una mixta con TIN fijo el primer año
         
         # préstamo inicial
-        C = 220000 
-        total_años = 38
+        C = 500000 
+        total_años = 35
         total_meses = total_años * 12
         
         ## Condiciones primer año
